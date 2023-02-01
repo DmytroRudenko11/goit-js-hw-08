@@ -1,13 +1,16 @@
-console.log('hey');
-
 const mail = document.querySelector('input');
 const message = document.querySelector('textarea');
-console.log(mail);
+const form = document.querySelector('form');
 
-mail.addEventListener('input', setMail);
+form.addEventListener('input', setData);
 
-function setMail({ target }) {
+function setData({ target }) {
   localStorage.setItem('feedback-form-state', JSON.stringify(target.value));
+  fillField();
 }
 
-localStorage.setItem('feedback-form-state', 'smth');
+// message.addEventListener('input', setMail);
+
+// function setMessage({ target }) {
+//   localStorage.setItem('feedback-form-state', JSON.stringify(target.value));
+// }

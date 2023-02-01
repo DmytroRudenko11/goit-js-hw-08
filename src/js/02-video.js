@@ -9,7 +9,8 @@ player.on('timeupdate', throttle(setTime, 1000));
 function setTime({ seconds, percent }) {
   localStorage.setItem('videoplayer-current-time', JSON.stringify(seconds));
   localStorage.setItem('videoplayer-current-percent', JSON.stringify(percent));
-  if (localStorage.getItem('videoplayer-current-percent') === 1) {
+  console.log(localStorage.getItem('videoplayer-current-percent'));
+  if (Number(localStorage.getItem('videoplayer-current-percent')) > 0.99) {
     localStorage.setItem('videoplayer-current-time', JSON.stringify(0));
   }
 }
