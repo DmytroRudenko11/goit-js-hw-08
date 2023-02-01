@@ -10,4 +10,4 @@ function setMail({ target }) {
   localStorage.setItem('feedback-form-state', JSON.stringify(target.value));
 }
 
-// localStorage.setItem('feedback-form-state', 'smth');
+localStorage.setItem('feedback-form-state', 'smth');
