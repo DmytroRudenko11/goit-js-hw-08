@@ -26,12 +26,13 @@ function setData(e) {
 
 function onSubmitClick(e) {
   e.preventDefault();
-  localStorage.clear();
 
   if ((mail.value && comment.value) === '') {
-    alert('Fill up the form, please');
-  } else {
-    console.log(formFields);
+    return alert('Fill up the form, please');
   }
+
+  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+
+  localStorage.clear();
   form.reset();
 }
