@@ -19,14 +19,19 @@ if (localStorage.getItem('feedback-form-state') !== null) {
   comment.value = storageData.message;
 }
 
-function setData({ target: { name, value } }) {
-  formFields[name] = value;
+function setData(e) {
+  formFields[e.target.name] = e.target.value;
   localStorage.setItem('feedback-form-state', JSON.stringify(formFields));
 }
 
 function onSubmitClick(e) {
   e.preventDefault();
-  form.reset();
+  localStorage.clear();
 
-  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+  if ((mail.value && comment.value) === '') {
+    alert('Fill up the form, please');
+  } else {
+    console.log(formFields);
+  }
+  form.reset();
 }
