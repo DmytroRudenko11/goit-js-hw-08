@@ -8,6 +8,16 @@ const submitBtn = document.querySelector('button');
 form.addEventListener('input', throttle(setData, 500));
 submitBtn.addEventListener('click', onSubmitClick);
 
+// const formFields = JSON.parse(localStorage.getItem('feedback-form-state')) || {
+//   email: '',
+//   message: '',
+// };
+// // {
+// //   email: `${mail.value}`,
+// //   message: `${comment.value}`,
+// // };
+// console.log(formFields);
+
 if (localStorage.getItem('feedback-form-state') !== null) {
   const storageData = JSON.parse(localStorage.getItem('feedback-form-state'));
   mail.value = storageData.email;
@@ -19,7 +29,6 @@ function setData(e) {
     email: `${mail.value}`,
     message: `${comment.value}`,
   };
-
   formFields[e.target.name] = e.target.value;
   localStorage.setItem('feedback-form-state', JSON.stringify(formFields));
 }
